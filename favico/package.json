@@ -14,7 +14,7 @@
     "ci": "npm run clean && npm run lint && npm run coverage",
     "preversion": "npm whoami && npm run ci",
     "version": "git add -A",
-    "postversion": "git push && git push --tags && npm publish && npm run clean"
+    "postversion": "git push && npm publish && npm run clean"
   },
   "keywords": [],
   "author": "",
