@@ -52,8 +52,11 @@ const argv = require('yargs')
   .argv;
 
 if (argv.version || argv.v) {
-  console.log(`v${pkg.version}`); // eslint-disable-line
+  console.log(`v${pkg.version}`);
 } else {
   generate(argv)
-    .catch(err => console.log(err));
+    .catch((err) => {
+      console.log('Could not generate favicons');
+      console.log(err);
+    });
 }
