@@ -45,9 +45,9 @@ const resolveDynamicValues = (config) => {
     dynamic = jsdeep.deepSet(dynamic, 'design.ios.appName', config.appName);
     dynamic = jsdeep.deepSet(dynamic, 'design.androidChrome.manifest.name', config.appName);
   }
-  if (config === true) {
+  if (config.log === true) {
     dynamic.log = console.log; // eslint-disable-line
-  } else if (config === false) {
+  } else if (config.log === false) {
     dynamic.log = nolog;
   }
   return dynamic;

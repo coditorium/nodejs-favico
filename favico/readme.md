@@ -38,8 +38,9 @@ Sample config:
 {
   "output": "./build/favicons",
   "cache": "./.cache/favicons",
-  "log": true,
   "iconsPath": "/favicons",
+  "masterPicture": "./favicon.png",
+  "log": true,
   "design": {
     "ios": {
       "pictureAspect": "backgroundAndMargin",

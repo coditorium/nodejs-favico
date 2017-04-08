@@ -9,7 +9,7 @@ const argv = require('yargs')
     `${pkg.description}`,
     '\nUsage:\n  $0 [options]'
   ].join('\n'))
-  .epilogue(`For more information go to ${pkg.homepage || '<homepage-missing>'}`)
+  // .epilog(`for more information go to ${pkg.homepage}`)
   .help('help')
   .alias('help', 'h')
   .option('version', {
@@ -51,5 +51,6 @@ const argv = require('yargs')
 if (argv.version) {
   console.log(`v${pkg.version}`); // eslint-disable-line
 } else {
-  generate(argv);
+  generate(argv)
+    .catch(err => console.log("Could not generate favicons.\n" + err));
 }

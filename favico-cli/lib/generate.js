@@ -22,4 +22,4 @@ const generateFavicons = argv =>
     .then(config => mergeConfigWithArgs(config, argv))
     .then(config => favico(config));
 
-module.export = generateFavicons;
+module.exports = generateFavicons;
