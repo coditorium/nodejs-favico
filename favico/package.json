@@ -1,6 +1,6 @@
 {
   "name": "favico",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Small favicon generator/downloader",
   "main": "./lib/index.js",
   "homepage": "https://github.com/coditorium/nodejs-favico",
