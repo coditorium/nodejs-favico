@@ -1,6 +1,6 @@
 {
   "name": "favico-cli",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "CLI for favico",
   "main": "./lib/index.js",
   "homepage": "https://github.com/coditorium/nodejs-favico",
@@ -13,7 +13,7 @@
     "ci": "npm run lint",
     "preversion": "npm whoami && npm run ci",
     "version": "git add -A",
-    "postversion": "git push && npm publish && npm run clean"
+    "postversion": "git push && npm publish"
   },
   "keywords": [],
   "author": "",
