@@ -1,0 +1,29 @@
+{
+  "name": "favico-cli",
+  "version": "0.0.1",
+  "description": "CLI for favico",
+  "main": "./lib/index.js",
+  "homepage": "https://github.com/coditorium/nodejs-favico",
+  "repository": "git@github.com:coditorium/nodejs-favico.git",
+  "bin": {
+    "favico": "lib/index.js"
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "ci": "npm run lint",
+    "preversion": "npm whoami && npm run ci",
+    "version": "git add -A",
+    "postversion": "git push && git push --tags && npm publish && npm run clean"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "WTFPL",
+  "devDependencies": {
+    "eslint": "^3.18.0",
+    "eslint-config-coditorium": "^1.3.0"
+  },
+  "dependencies": {
+    "yargs": "^1.0.1",
+    "favico": "^0.1.0"
+  }
+}

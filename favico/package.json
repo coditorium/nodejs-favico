@@ -1,0 +1,41 @@
+{
+  "name": "favico",
+  "version": "0.0.1",
+  "description": "Small favicon generator/downloader",
+  "main": "./lib/index.js",
+  "homepage": "https://github.com/coditorium/nodejs-favico",
+  "repository": "git@github.com:coditorium/nodejs-favico.git",
+  "scripts": {
+    "lint": "eslint .",
+    "clean": "rimraf ./coverage",
+    "test": "mocha --timeout 600000 --require './test/setup.js' ./test/**/*.spec.js",
+    "coverage": "istanbul cover ./node_modules/.bin/_mocha -- --timeout 600000 --require './test/setup.js' ./test/**/*.spec.js",
+    "coveralls": "cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
+    "ci": "npm run clean && npm run lint && npm run coverage",
+    "preversion": "npm whoami && npm run ci",
+    "version": "git add -A",
+    "postversion": "git push && git push --tags && npm publish && npm run clean"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "WTFPL",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "chai-as-promised": "^6.0.0",
+    "coveralls": "^2.13.0",
+    "del": "^2.2.2",
+    "eslint": "^3.18.0",
+    "eslint-config-coditorium": "^1.3.0",
+    "istanbul": "v1.1.0-alpha.1",
+    "mkdirp": "^0.5.1",
+    "mocha": "^3.2.0",
+    "mocha-metatitles": "^1.0.1",
+    "yargs": "^7.0.2"
+  },
+  "dependencies": {
+    "copy-dir": "^0.3.0",
+    "jsdeep": "^1.3.0",
+    "mkdirp": "^0.5.1",
+    "rfg-api": "^0.3.0"
+  }
+}
