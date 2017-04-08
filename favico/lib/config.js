@@ -59,10 +59,20 @@ const addLogPrefix = (config) => {
   return jsdeep.deepMerge(config, { log: prefixed });
 };
 
+const validateConfig = (config) => {
+  if (!config.masterPicture || typeof config.masterPicture !== 'string') {
+    throw new Error('Favicon: Missing masterPicture value');
+  }
+  if (!config.output || typeof config.output !== 'string') {
+    throw new Error('Favicon: Missing output value');
+  }
+  return config;
+};
+
 const resolveConfig = (config) => {
   const dynamicConfig = resolveDynamicValues(config);
   const merged = jsdeep.deepMerge(defaultConfig, config, dynamicConfig);
-  return addLogPrefix(merged);
+  return validateConfig(addLogPrefix(merged));
 };
 
 module.exports = resolveConfig;

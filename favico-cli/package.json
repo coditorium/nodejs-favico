@@ -24,6 +24,6 @@
   },
   "dependencies": {
     "yargs": "^1.0.1",
-    "favico": "^1.0.0"
+    "favico": "^1.0.1"
   }
 }

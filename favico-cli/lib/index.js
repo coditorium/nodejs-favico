@@ -6,16 +6,17 @@ const generate = require('./generate');
 const argv = require('yargs')
   .usage([
     `${pkg.name} v${pkg.version}`,
-    `${pkg.description}`,
+    pkg.description,
+    pkg.homepage,
     '\nUsage:\n  $0 [options]'
   ].join('\n'))
-  // .epilog(`for more information go to ${pkg.homepage}`)
   .help('help')
   .alias('help', 'h')
   .option('version', {
-    description: 'Show version information',
+    description: 'Show version',
     default: false,
-    type: 'boolean'
+    type: 'boolean',
+    alias: 'v'
   })
   .option('silent', {
     description: 'Suppress logs',
@@ -24,33 +25,35 @@ const argv = require('yargs')
     alias: 's'
   })
   .option('config', {
-    description: 'Specify configuration file from command line',
+    description: 'Configuration file',
     default: './favicons.json',
     type: 'string',
     alias: 'c'
   })
   .option('output', {
-    description: 'Specify output directory from command line. Overrides value from config file.',
+    description: 'Output directory. Default: ./favicons',
     type: 'string',
     alias: 'o'
   })
   .option('cache', {
-    description: 'Specify cache directory from command line. Overrides value from config file.',
+    description: 'Cache directory',
     type: 'string'
   })
   .option('picture', {
-    description: 'Specify master picture from command line. Overrides value from config file.',
-    type: 'string'
+    description: 'Master picture. Default: ./favicon.png',
+    type: 'string',
+    alias: 'p'
   })
   .option('apikey', {
-    description: 'Specify apikey from command line. Overrides value from config file.',
-    type: 'string'
+    description: 'RealFavicon API key',
+    type: 'string',
+    alias: 'a'
   })
   .argv;
 
-if (argv.version) {
+if (argv.version || argv.v) {
   console.log(`v${pkg.version}`); // eslint-disable-line
 } else {
   generate(argv)
-    .catch(err => console.log("Could not generate favicons.\n" + err));
+    .catch(err => console.log(err));
 }

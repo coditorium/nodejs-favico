@@ -6,14 +6,16 @@ const util = require('./util');
 const defaultConfig = {
   log: true,
   output: './favicons',
-  picture: './favicon.png'
+  masterPicture: './favicon.png'
 };
 
 const mergeConfigWithArgs = (config, argv) => {
-  const resolved = Object.assign({}, defaultConfig, config, argv);
-  if (resolved.silent === true) {
-    resolved.log = false;
-  }
+  const resolved = Object.assign({}, defaultConfig, config);
+  if (argv.silent) resolved.log = false;
+  if (argv.picture) resolved.masterPicture = argv.picture;
+  if (argv.output) resolved.output = argv.output;
+  if (argv.cache) resolved.cache = argv.cache;
+  if (argv.apikey) resolved.apiKey = argv.apikey;
   return resolved;
 };
 
