@@ -15,7 +15,8 @@ unitTest('resolveConfig:', () => {
       'settings',
       'iconsPath',
       'masterPicture',
-      'output'
+      'output',
+      'reuseOutput'
     ]);
   });
 

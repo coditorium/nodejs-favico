@@ -1,5 +1,5 @@
-const favico = require('favico');
-const util = require('./util');
+const favico = require('../lib');
+const util = require('../lib/util');
 
 const defaultConfig = {
   log: true,
@@ -13,12 +13,13 @@ const mergeConfigWithArgs = (config, argv) => {
   if (argv.picture) resolved.masterPicture = argv.picture;
   if (argv.output) resolved.output = argv.output;
   if (argv.cache) resolved.cache = argv.cache;
+  if (argv.reuse) resolved.reuseOutput = argv.reuse;
   if (argv.apikey) resolved.apiKey = argv.apikey;
   return resolved;
 };
 
 const generateFavicons = argv =>
-  util.readJson(argv.config)
+  util.readJsonIfExists(argv.config)
     .then(config => mergeConfigWithArgs(config, argv))
     .then(config => favico(config));
 

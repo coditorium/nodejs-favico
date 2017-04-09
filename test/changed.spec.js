@@ -1,17 +1,17 @@
-const cache = require('../lib/cache');
+const { isCacheUpToDate } = require('../lib/changed');
 
 const config = (custom = {}) => Object.assign({
-  cache: './test/cacheSamples/cache',
+  cache: './test/cacheSamples',
   masterPicture: './test/cacheSamples/unmodified.png',
   appName: 'app',
   log: console.log
 }, custom);
 
 const isCached = customConfig =>
-  cache.isCached(config(customConfig));
+  isCacheUpToDate(config(customConfig));
 
-unitTest('cache', () => {
-  describe('isCached:', () => {
+unitTest('changed', () => {
+  describe('isCacheUpToDate:', () => {
     it('should return false on no cache directory', () =>
       expect(isCached({ cache: './test/cacheSamples/nocache' }))
         .to.be.eventually.false);

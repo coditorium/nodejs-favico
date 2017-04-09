@@ -1,10 +1,13 @@
 {
   "name": "favico",
   "version": "1.1.3",
-  "description": "Small favicon generator/downloader",
+  "description": "Small favicon downloader",
   "main": "./lib/index.js",
   "homepage": "https://github.com/coditorium/nodejs-favico",
   "repository": "git@github.com:coditorium/nodejs-favico.git",
+  "bin": {
+    "favico": "./bin/index.js"
+  },
   "scripts": {
     "lint": "eslint .",
     "clean": "rimraf ./coverage",
@@ -14,9 +17,9 @@
     "ci": "npm run clean && npm run lint && npm run coverage",
     "preversion": "npm whoami && npm run ci",
     "version": "git add -A",
-    "postversion": "git push && npm publish && npm run clean"
+    "postversion": "git push && git push --tags && npm publish && npm run clean"
   },
-  "keywords": [],
+  "keywords": ["favicons"],
   "author": "",
   "license": "WTFPL",
   "devDependencies": {
@@ -37,6 +40,7 @@
     "copy-dir": "^0.3.0",
     "jsdeep": "^1.3.0",
     "mkdirp": "^0.5.1",
-    "rfg-api": "^0.3.0"
+    "rfg-api": "^0.3.0",
+    "yargs": "^7.0.2"
   }
 }

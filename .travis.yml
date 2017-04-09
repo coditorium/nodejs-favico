@@ -2,6 +2,5 @@ language: node_js
 node_js:
   - "7"
 
-before_script: cd ./favico && npm install && cd ../favico-cli && npm install && cd ..
-script: cd ./favico && npm run ci && cd ../favico-cli && npm run ci && cd ..
-after_success: cd ./favico && npm run coveralls && cd ..
+script: npm run ci
+after_success: npm run coveralls

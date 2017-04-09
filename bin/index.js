@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-
+/* eslint-disable no-alert, no-console */
 const pkg = require('../package.json');
 const generate = require('./generate');
 
@@ -19,14 +19,12 @@ const argv = require('yargs')
     alias: 'v'
   })
   .option('silent', {
-    description: 'Suppress logs',
-    default: false,
+    description: 'Suppress logs. Default: false',
     type: 'boolean',
     alias: 's'
   })
   .option('config', {
-    description: 'Configuration file',
-    default: './favicons.json',
+    description: 'Configuration file. Default: ./favicons.json',
     type: 'string',
     alias: 'c'
   })
@@ -38,6 +36,10 @@ const argv = require('yargs')
   .option('cache', {
     description: 'Cache directory',
     type: 'string'
+  })
+  .option('reuse', {
+    description: 'Reuse output',
+    type: 'boolean'
   })
   .option('picture', {
     description: 'Master picture. Default: ./favicon.png',
